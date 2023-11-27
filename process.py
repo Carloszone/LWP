@@ -3,8 +3,15 @@ import pandas as pd
 
 feature_file = 'data/train_logs.csv'
 cats = ['activity', 'down_event', 'up_event', 'text_update']
-mouse_operation = ['Leftclick', '']
-
+mouse_operation = ['Leftclick', 'Middleclick', 'Rightclick', 'Unknownclick']
+feature_key_operation = ['F10', 'Home', 'CapsLock', 'Escape', 'NumLock', 'ArrowLeft', 'Insert', 'MediaPlayPause',
+                         'Space', 'ArrowUp', 'PageDown', 'ArrowDown', 'AltGraph', 'ArrowRight', 'AudioVolumeUp',
+                         'Cancel', 'Pause', 'Shift', 'AudioVolumeMute', 'ContextMenu', 'MediaTrackPrevious',
+                         'Backspace', 'ScrollLock',  'AudioVolumeDown', 'ModeChange', 'MediaTrackNext', 'Control',
+                         'Enter', 'Delete', 'Dead', 'Process', 'PageUp', 'Clear', 'Alt', 'Meta', 'Tab', 'End']
+mistake_touch = ['MediaPlayPause', 'F10', 'AudioVolumeUp', 'Cancel', 'Pause', 'AudioVolumeMute', 'ContextMenu',
+                 'MediaTrackPrevious', 'AudioVolumeDown', 'ModeChange', 'MediaTrackNext', 'Dead', 'Process', 'Clear',
+                 'Alt', 'F12']
 df = pd.read_csv(feature_file)
 print(df['activity'].value_counts())
 
@@ -17,12 +24,12 @@ print('**********************')
 print(set(g))
 
 
-{'Middleclick', 'F10', 'Unidentified', 'w', 'q', 'OS', '!', 's', 'Home', 'j', '\x80', ',', 'CapsLock', 'Escape',
- 'NumLock', 'Å\x9f', 'ArrowLeft', 'Â´', 'Insert', '=', 'Unknownclick', ']', 'f', 'Leftclick', ';', 'F3', 'u', 'Meta',
- 'Ë\x86', 'm', 'V', ')', '.', '*', '<', 'MediaPlayPause', '#', 'C', '{', 'Space', 'ArrowUp', '\x9b', 'PageDown', 'c',
- 'ä', '\x97', 'ArrowDown', '^', 'AltGraph', '/', '~', 'e', 'ArrowRight', 'F2', 'AudioVolumeUp', 'Rightclick', '`', '[',
- '(', 'Cancel', 'Pause', 'Shift', 'AudioVolumeMute', 'l', 'x', '¿', 'n', 'ContextMenu', 'I', 'End', 'F12',
- 'MediaTrackPrevious', 'Backspace', 'i', '+', 'F', 'ScrollLock', '%', 'd', '\x96', '&', 't', '5', 'AudioVolumeDown',
- 'F1', 'MediaTrackNext', '_', 'b', '¡', 'v', 'z', 'A', 'Tab', '-', 'Ä±', 'p', 'ModeChange', 'â\x80\x93', 'a', '$', 'y',
- 'Control', '\\', '2', 'F15', 'k', 'Enter', 'Delete', 'M', '@', 'F11', 'o', '0', "'", '1', 'Dead', '"', 'F6', 'T', 'h',
- 'r', '}', '>', ':', 'g', 'S', 'Process', 'PageUp', '?', 'Clear', 'Alt', '|'}
+# {'Unidentified', 'w', 'q', 'OS', '!', 's', 'j', '\x80', ',',
+#   'Å\x9f',  'Â´',  '=', ']', 'f',  ';', 'F3', 'u',
+#  'Ë\x86', 'm', 'V', ')', '.', '*', '<',  '#', 'C', '{',   '\x9b',  'c',
+#  'ä', '\x97', '^',  '/', '~', 'e',  '`', '[',
+#  '(',  'l', 'x', '¿', 'n',  'I', 'F12',
+#   'i', '+', 'F',  '%', 'd', '\x96', '&', 't', '5',
+#  'F1',  '_', 'b', '¡', 'v', 'z', 'A', '-', 'Ä±', 'p',  'â\x80\x93', 'a', '$', 'y',
+#   '\\', '2', 'F15', 'k',   'M', '@', 'F11', 'o', '0', "'", '1',  '"', 'F6', 'T', 'h',
+#  'r', '}', '>', ':', 'g', 'S', '?',   '|'}
