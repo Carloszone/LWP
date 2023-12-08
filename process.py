@@ -12,6 +12,7 @@ feature_key_operation = ['F10', 'Home', 'CapsLock', 'Escape', 'NumLock', 'ArrowL
 mistake_touch = ['MediaPlayPause', 'F10', 'AudioVolumeUp', 'Cancel', 'Pause', 'AudioVolumeMute', 'ContextMenu',
                  'MediaTrackPrevious', 'AudioVolumeDown', 'ModeChange', 'MediaTrackNext', 'Dead', 'Process', 'Clear',
                  'Alt', 'F12']
+
 df = pd.read_csv(feature_file)
 print(df['activity'].value_counts())
 
@@ -33,3 +34,4 @@ print(set(g))
 #  'F1',  '_', 'b', '¡', 'v', 'z', 'A', '-', 'Ä±', 'p',  'â\x80\x93', 'a', '$', 'y',
 #   '\\', '2', 'F15', 'k',   'M', '@', 'F11', 'o', '0', "'", '1',  '"', 'F6', 'T', 'h',
 #  'r', '}', '>', ':', 'g', 'S', '?',   '|'}
+
