@@ -3,7 +3,7 @@ import pandas as pd
 import scipy
 
 mouse_operation = ['Leftclick', 'Middleclick', 'Rightclick', 'Unknownclick']
-feature_key_operation = ['F10', 'Home', 'CapsLock', 'Escape', 'NumLock', 'ArrowLeft', 'Insert', 'MediaPlayPause',
+feature_key_operation = ['Home', 'CapsLock', 'Escape', 'NumLock', 'ArrowLeft', 'Insert', 'MediaPlayPause',
                          'ArrowUp', 'PageDown', 'ArrowDown', 'AltGraph', 'ArrowRight', 'AudioVolumeUp',
                          'Cancel', 'Pause', 'Shift', 'AudioVolumeMute', 'ContextMenu', 'MediaTrackPrevious',
                          'ScrollLock', 'AudioVolumeDown', 'ModeChange', 'MediaTrackNext', 'Control',
@@ -40,4 +40,19 @@ def total_duration_percentage(series):
 # data generation
 def unique_count(series: pd.Series) -> int:
     return series.nunique()
+
+
+def is_nan_check(df):
+    check = df.isnull().sum().sum()
+    columns_with_nan = df.columns[df.isna().any()].tolist()
+    if check == 0:
+        print('No missing value')
+    else:
+        print(f'There are {check} missing values')
+        print("Columns with NaN values:", columns_with_nan)
+
+def rmse(y_true, y_pred):
+    y_true = np.asarray(y_true)
+    y_pred = np.asarray(y_pred)
+    return np.sqrt(np.mean((y_true - y_pred) ** 2))
 
